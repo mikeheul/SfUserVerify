@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
-.btn, input, label {
+input, label {
     margin-top: 10px;
+}
+
+.btn {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
 }

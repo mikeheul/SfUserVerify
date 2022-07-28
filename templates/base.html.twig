@@ -14,8 +14,13 @@
         <div class="container">
             <nav>
                 <ul>
-                    <li><a href="{{ path('app_login') }}">Login</a></li>
-                    <li><a href="{{ path('app_register') }}">Register</a></li>
+                    {% if app.user %}
+                        <li><a href="{{ path('app_profile') }}">My Profile</a></li>
+                        <li><a href="{{ path('app_logout') }}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{{ path('app_login') }}">Login</a></li>
+                        <li><a href="{{ path('app_register') }}">Register</a></li>
+                    {% endif %}
                 </ul>
             </nav>
             {% block body %}{% endblock %}

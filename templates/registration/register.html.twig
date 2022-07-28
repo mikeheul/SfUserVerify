@@ -14,7 +14,10 @@
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm.agreeTerms, {
+            label: 'Agree terms',
+            'label_attr': {'class': 'form-check-label'}
+        }) }}
 
         <button type="submit" class="btn btn-lg btn-primary">Register</button>
     {{ form_end(registrationForm) }}

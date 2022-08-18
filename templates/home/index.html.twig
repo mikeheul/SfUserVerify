@@ -4,6 +4,6 @@
 
 {% block body %}
 
-<h1>Welcome</h1>
+<h1>Welcome {% if app.user %}{{ app.user.pseudo }}{% endif %}</h1>
 
 {% endblock %}

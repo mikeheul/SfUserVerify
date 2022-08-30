@@ -1,7 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+nav {
+    padding: 10px 0 0 0 ;
+}
+
+nav ul {
+    display: flex;
+    justify-content: end;
+    padding: 0px;
+    gap: 10px;
+}
+
+nav ul li {
+    list-style: none;
+    border: 1px solid rgb(226, 226, 226);
+    background: rgb(226, 226, 226);
+}
+
+nav ul li a {
+    width: 200px;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    color: rgb(88, 88, 88);
 }
 
 input, label {
@@ -15,4 +45,19 @@ input, label {
 
 a {
     text-decoration: none;
+}
+
+h1 {
+    font-weight: 800;
+}
+
+.btn {
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    width: 300px;
+}
+
+.form-check {
+    padding: 10px 0 0 0;
 }

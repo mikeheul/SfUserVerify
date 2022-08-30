@@ -20,8 +20,9 @@ nav ul {
 
 nav ul li {
     list-style: none;
-    border: 1px solid rgb(226, 226, 226);
-    background: rgb(226, 226, 226);
+    border: 1px solid rgb(0, 0, 0);
+    background: rgb(76, 76, 76);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 nav ul li a {
@@ -31,7 +32,14 @@ nav ul li a {
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
-    color: rgb(88, 88, 88);
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    transition: 0.4s;
+}
+
+nav ul li a:hover {
+    color: #fff;
+    background: rgb(109, 109, 109);
 }
 
 input, label {

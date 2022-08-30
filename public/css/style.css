@@ -7,15 +7,27 @@
     font-family: "Poppins";
 }
 
+body {
+    background: rgb(235, 235, 235);
+}
+
 nav {
     padding: 10px 0 0 0 ;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color:rgb(153, 153, 153);
 }
 
 nav ul {
     display: flex;
     justify-content: end;
     padding: 0px;
-    gap: 10px;
+    gap: 5px;
 }
 
 nav ul li {
@@ -23,6 +35,7 @@ nav ul li {
     border: 1px solid rgb(0, 0, 0);
     background: rgb(76, 76, 76);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    border-radius: 5px;
 }
 
 nav ul li a {
@@ -33,7 +46,7 @@ nav ul li a {
     cursor: pointer;
     text-align: center;
     color: rgb(255, 255, 255);
-    font-weight: 600;
+    font-weight: 400;
     transition: 0.4s;
 }
 

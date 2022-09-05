@@ -9,7 +9,8 @@
 {% if app.user %}
     <p>
         Pseudo : {{ app.user.pseudo }} <br>
-        Email : {{ app.user.email }}
+        Email : {{ app.user.email }} <br>
+        Register date : {{ app.user.createdAt | date('d-m-Y H:i') }}
     </p>
 {% endif %}
 

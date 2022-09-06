@@ -8,10 +8,10 @@
 
 {% if app.user %}
     <p>
-        Pseudo : {{ app.user.pseudo }} <br>
-        Email : {{ app.user.email }} <br>
-        Register date : {{ app.user.createdAt | date('d-m-Y H:i') }} <br>
-        Role(s) : {{ app.user.roles | join(', ') }}
+        <strong>Pseudo :</strong> {{ app.user.pseudo }} <br>
+        <strong>Email :</strong> {{ app.user.email }} <br>
+        <strong>Register date :</strong> {{ app.user.createdAt | date('d-m-Y H:i') }} <br>
+        <strong>Role(s) :</strong> {{ app.user.roles | join(', ') }}
         {# {% for role in app.user.roles %}
             {{ role }}
         {% endfor %} #}

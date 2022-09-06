@@ -10,7 +10,11 @@
     <p>
         Pseudo : {{ app.user.pseudo }} <br>
         Email : {{ app.user.email }} <br>
-        Register date : {{ app.user.createdAt | date('d-m-Y H:i') }}
+        Register date : {{ app.user.createdAt | date('d-m-Y H:i') }} <br>
+        Role(s) : {{ app.user.roles | join(', ') }}
+        {# {% for role in app.user.roles %}
+            {{ role }}
+        {% endfor %} #}
     </p>
 {% endif %}
 

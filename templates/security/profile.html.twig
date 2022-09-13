@@ -8,6 +8,7 @@
 
 {% if app.user %}
     <p>
+        {{ app.user.infos | striptags('<br>') | raw }}
         <strong>Pseudo :</strong> {{ app.user.pseudo }} <br>
         <strong>Email :</strong> {{ app.user.email }} <br>
         <strong>Register date :</strong> {{ app.user.createdAt | date('d-m-Y H:i') }} <br>

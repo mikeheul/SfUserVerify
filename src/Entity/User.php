@@ -177,4 +177,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getInfos() {
+        return $this->pseudo."<br>".$this->email."<br>";
+    }
+
 }

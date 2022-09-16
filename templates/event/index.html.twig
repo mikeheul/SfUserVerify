@@ -8,6 +8,7 @@
         {% for event in events %}
             <div class="event-card">
                 <h2>{{ event.title }}</h2>
+                <p>{{ event.startAt | date('d-m-Y H:i') }}</p>
                 <ul>
                     {% for user in event.users %}
                         <li>{{ user.pseudo }}</li>

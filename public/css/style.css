@@ -71,6 +71,9 @@ a {
 h1 {
     font-weight: 800;
 }
+h2 {
+    font-weight: 700;
+}
 
 .btn {
     border-radius: 5px;
@@ -98,9 +101,16 @@ h1 {
 }
 
 .events .event-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 350px;
     background: #fff;
     padding: 30px;
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.datetime {
+    color: rgb(166, 166, 166);
 }

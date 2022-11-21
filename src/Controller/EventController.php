@@ -54,8 +54,8 @@ class EventController extends AbstractController
     /**
      * @Route("/event/add", name="event_add")
      */
-    public function add(Request $request, ManagerRegistry $doctrine, EntityManagerInterface $entityManager) {
-        
+    public function add(Request $request, ManagerRegistry $doctrine, EntityManagerInterface $entityManager) 
+    {
         $event = new Event();
         $form = $this->createForm(EventType::class, $event);
         $form->handleRequest($request);
@@ -71,6 +71,16 @@ class EventController extends AbstractController
         return $this->render('event/add.html.twig', [
             'formAddEvent' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/event/delete/{id}", name="event_delete")
+     */
+    public function delete(Event $event, Request $request, ManagerRegistry $doctrine, EntityManagerInterface $entityManager)
+    {
+        $entityManager->remove($event);
+        $entityManager->flush();
+        return $this->redirectToRoute('app_event');
     }
 
 }

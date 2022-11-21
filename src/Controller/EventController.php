@@ -31,12 +31,16 @@ class EventController extends AbstractController
      */
     public function subscribe(ManagerRegistry $doctrine, Event $event): Response
     {
-        $event->addUser($this->getUser());
-        $manager = $doctrine->getManager();
-        $manager->persist($event);
-        $manager->flush();
+        if($this->getUser()) {
+            $event->addUser($this->getUser());
+            $manager = $doctrine->getManager();
+            $manager->persist($event);
+            $manager->flush();
 
-        return $this->redirectToRoute('app_event');
+            return $this->redirectToRoute('app_event');
+        } else {
+            return $this->redirectToRoute('app_login');
+        }
     }
 
     /**
@@ -44,12 +48,16 @@ class EventController extends AbstractController
      */
     public function unsubscribe(ManagerRegistry $doctrine, Event $event): Response
     {
-        $event->removeUser($this->getUser());
-        $manager = $doctrine->getManager();
-        $manager->persist($event);
-        $manager->flush();
-
-        return $this->redirectToRoute('app_event');
+        if($this->getUser()) {
+            $event->removeUser($this->getUser());
+            $manager = $doctrine->getManager();
+            $manager->persist($event);
+            $manager->flush();
+    
+            return $this->redirectToRoute('app_event');
+        } else {
+            return $this->redirectToRoute('app_login');
+        }
     }
 
     /**

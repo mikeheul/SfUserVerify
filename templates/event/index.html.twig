@@ -4,7 +4,9 @@
 
 {% block body %}
 
-    <a class="btn btn-primary" href="{{ path('event_add') }}">Create an event</a>
+    {% if app.user and is_granted("ROLE_ADMIN") %}
+        <a class="btn btn-primary" href="{{ path('event_add') }}">Create an event</a>
+    {% endif %}
 
     <div class="events">
         {% for event in events %}
@@ -17,10 +19,12 @@
                     {% endfor %}
                 </ul>
                 <div class="join">
-                    {% if app.user in event.users %}
-                        <a href="{{ path('user_unsubscribe', {'id':event.id}) }}">Unsubscribe</a>
-                    {% else %}
-                        <a href="{{ path('user_subscribe', {'id':event.id}) }}">Subscribe</a>
+                    {% if app.user %}
+                        {% if app.user in event.users %}
+                            <a href="{{ path('user_unsubscribe', {'id':event.id}) }}">Unsubscribe</a>
+                        {% else %}
+                            <a href="{{ path('user_subscribe', {'id':event.id}) }}">Subscribe</a>
+                        {% endif %}    
                     {% endif %}
                 </div>
 

@@ -14,6 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class EventController extends AbstractController
 {
     /**
+     * Lister les événements
      * @Route("/event", name="app_event")
      */
     public function index(ManagerRegistry $doctrine): Response
@@ -27,6 +28,7 @@ class EventController extends AbstractController
     }
 
     /**
+     * Inscrire l'utilisateur connecté à un événement 
      * @Route("/event/subscribe/{id}", name="user_subscribe")
      */
     public function subscribe(ManagerRegistry $doctrine, Event $event): Response
@@ -44,6 +46,7 @@ class EventController extends AbstractController
     }
 
     /**
+     * Désinscrire l'utilisateur connecté d'un événement
      * @Route("/event/unsubscribe/{id}", name="user_unsubscribe")
      */
     public function unsubscribe(ManagerRegistry $doctrine, Event $event): Response
@@ -61,6 +64,7 @@ class EventController extends AbstractController
     }
 
     /**
+     * Ajouter un événement
      * @Route("/event/add", name="event_add")
      */
     public function add(Request $request, ManagerRegistry $doctrine, EntityManagerInterface $entityManager) 

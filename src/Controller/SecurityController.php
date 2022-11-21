@@ -10,6 +10,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     /**
+     * Connexion
      * @Route("/login", name="app_login")
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
@@ -27,6 +28,7 @@ class SecurityController extends AbstractController
     }
 
     /**
+     * Déconnexion
      * @Route("/logout", name="app_logout")
      */
     public function logout(): void
@@ -35,10 +37,15 @@ class SecurityController extends AbstractController
     }
 
     /**
+     * Accéder à son profil
      * @Route("/profile", name="app_profile")
      */
     public function profile(): Response
     {
-        return $this->render('security/profile.html.twig');
+        if($this->getUser()) {
+            return $this->render('security/profile.html.twig');
+        } else {
+            return $this->redirectToRoute("app_login");
+        }
     }
 }

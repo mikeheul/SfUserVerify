@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EventController!{% endblock %}
+{% block title %}Events!{% endblock %}
 
 {% block body %}
+
+    <a href="{{ path('event_add') }}">Create an event</a>
 
     <div class="events">
         {% for event in events %}

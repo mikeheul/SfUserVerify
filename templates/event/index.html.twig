@@ -4,6 +4,7 @@
 
 {% block body %}
 
+     {# if logged user is admin --> link "create a new event" #}
     {% if app.user and is_granted("ROLE_ADMIN") %}
         <a class="btn btn-primary" href="{{ path('event_add') }}">Create an event</a>
     {% endif %}
@@ -14,12 +15,14 @@
                 <h2>{{ event.title }}</h2>
                 <p class="datetime"><i class="fa-regular fa-calendar"></i> {{ event.startAt | date('d-m-Y H:i') }}</p>
                 <ul>
+                    {# subscribed users in event #}
                     {% for user in event.users %}
                         <li>{{ user.pseudo }}</li>
                     {% endfor %}
                 </ul>
                 <div class="join">
                     {% if app.user %}
+                        {# check if user already subscribed in event --> link Subscribe or unsubscribe #}
                         {% if app.user in event.users %}
                             <a href="{{ path('user_unsubscribe', {'id':event.id}) }}">Unsubscribe</a>
                         {% else %}
@@ -28,6 +31,7 @@
                     {% endif %}
                 </div>
 
+                {# if logged user is admin --> link "delete this event" #}
                 {% if app.user and is_granted('ROLE_ADMIN') %}
                     <a class="btn btn-danger" href="{{ path('event_delete', {'id': event.id}) }}"><i class="fa-regular fa-trash-can"></i> Delete this event</a>
                 {% endif %}
